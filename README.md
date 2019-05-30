@@ -1,5 +1,8 @@
 # HSD
 
+[![Build Status][circleci-status-img]][circleci-status-url]
+[![Coverage Status][coverage-status-img]][coverage-status-url]
+
 **HSD** is an implementation of the [Handshake][handshake] Protocol.
 
 ## Install
@@ -12,6 +15,22 @@ $ cd hsd
 $ npm install --production
 $ ./bin/hsd
 ```
+
+`node-gyp` is used to compile native code and requires
+Python 2.7. If your machine natively supports Python 3,
+configure `npm` using the command:
+
+```
+$ npm config set python /path/to/executable/python2.7
+```
+
+You can determine the native version of Python using:
+
+```
+$ python --version
+```
+
+See the [node-gyp](https://github.com/nodejs/node-gyp) documentation for more information.
 
 ## Documentation
 
@@ -95,8 +114,7 @@ $ hsd --listen --max-inbound=20
 
 ### Mining
 
-To mine with getwork on a GPU, HSD should be used in combination with
-[hs-miner] and [hs-client].
+To mine with a CPU, HSD should be used in combination with [hs-client].
 
 ``` bash
 # To boot and listen publicly on the HTTP server...
@@ -105,12 +123,12 @@ $ hsd --http-host '::' --api-key 'hunter2' \
   --coinbase-address 'ts1qsu62stru80svj5xk6mescy65v0lhg8xxtweqsr'
 ```
 
-Once HSD is running, we can run [hs-miner] on a machine with a CUDA-capable
-GPU and point it at our full node.
+Once HSD is running, we can use [hs-client] to activate the miner
+using the `setgenerate` RPC.
 
 ``` bash
-$ hs-miner --rpc-host 'my-ip-address' \
-  --rpc-user hnsrpc --rpc-pass 'hunter2'
+$ hsd-rpc --http-host 'my-ip-address' \
+  --api-key 'hunter2' setgenerate true 1
 ```
 
 ### Airdrop & Faucet
@@ -384,3 +402,7 @@ See LICENSE for more info.
 [unbound]: https://www.nlnetlabs.nl/projects/unbound/download/
 [hnsd]: https://github.com/handshake-org/hnsd
 [airdrop]: https://github.com/handshake-org/hs-airdrop
+[coverage-status-img]: https://codecov.io/gh/handshake-org/hsd/badge.svg?branch=master
+[coverage-status-url]: https://codecov.io/gh/handshake-org/hsd?branch=master
+[circleci-status-img]: https://circleci.com/gh/handshake-org/hsd/tree/master.svg?style=shield
+[circleci-status-url]: https://circleci.com/gh/handshake-org/hsd/tree/master
