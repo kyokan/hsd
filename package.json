@@ -43,7 +43,7 @@
     "bupnp": "~0.2.6",
     "bval": "~0.1.6",
     "bweb": "~0.1.10",
-    "goosig": "~0.7.0",
+    "goosig": "https://github.com/kyokan/goosig.git#29cd9dce78abb296400104ab8fea62ee515cefc4",
     "hs-client": "~0.0.8",
     "n64": "~0.2.10",
     "urkel": "~0.6.3"
