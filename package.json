@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bcfg": "~0.1.6",
-    "bcrypto": "~5.1.0",
+    "bcrypto": "https://github.com/bcoin-org/bcrypto/32e6ce4c189e9c748373ce89bc6c7949f9a2992b",
     "bdb": "~1.2.1",
     "bdns": "~0.1.5",
     "bevent": "~0.1.5",
