@@ -19,6 +19,11 @@
   "engines": {
     "node": ">=8.0.0"
   },
+  "pkg": {
+    "assets": [
+      "lib/covenants/**/*"
+    ]
+  },
   "dependencies": {
     "bcfg": "~0.1.6",
     "bcrypto": "~5.1.0",
@@ -52,15 +57,7 @@
     "bmocha": "^2.1.3"
   },
   "main": "./lib/hsd.js",
-  "bin": {
-    "hsd": "./bin/hsd",
-    "hsd-node": "./bin/node",
-    "hsd-spvnode": "./bin/spvnode",
-    "hs-seeder": "./bin/hs-seeder",
-    "hs-wallet": "./bin/hsw",
-    "hsd-cli": "./bin/hsd-cli",
-    "hsw-cli": "./bin/hsw-cli"
-  },
+  "bin": "./bin/hsd",
   "scripts": {
     "lint": "eslint $(cat .eslintfiles) || exit 0",
     "lint-ci": "eslint $(cat .eslintfiles)",
